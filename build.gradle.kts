@@ -1,9 +1,8 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.kotlinxSerialization)
 }
 
-group = "me.user"
+group = "com.fizzd"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -11,6 +10,8 @@ repositories {
 }
 
 kotlin {
+    jvm()
+    
     val hostOs = System.getProperty("os.name")
     val isArm64 = System.getProperty("os.arch") == "aarch64"
     val isMingwX64 = hostOs.startsWith("Windows")
@@ -25,15 +26,19 @@ kotlin {
 
     nativeTarget.apply {
         binaries {
-            executable {
-                entryPoint = "main"
+            staticLib {
+                baseName = "jsonparser"
             }
         }
     }
 
     sourceSets {
-        nativeMain.dependencies {
-            implementation(libs.kotlinxSerializationJson)
+        val commonMain by getting
+        val jvmMain by getting {
+            dependsOn(commonMain)
+        }
+        val nativeMain by getting {
+            dependsOn(commonMain)
         }
     }
 }
