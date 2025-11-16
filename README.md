@@ -303,7 +303,7 @@ fun main() {
 
 ## License
 
-[Add your license here]
+MIT
 
 ## Contributing
 
