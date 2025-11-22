@@ -299,7 +299,7 @@ fun main() {
 ## Notes
 
 > [!Note]
-> Since this project was split from [ADOFAI-JS](https://github.com/Xbodwf/ADOFAI-JS), this project may not receive code submissions before the original library is updated.
+> Since this project was split from [ADOFAI-JS](https://github.com/ADOFAI-Expansion/ADOFAI-JS), this project may not receive code submissions before the original library is updated.
 
 ## License
 
